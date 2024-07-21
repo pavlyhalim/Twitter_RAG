@@ -31,7 +31,7 @@ This Python script leverages the power of Retrieval Augmented Generation (RAG) a
     -   Place your Twitter data in a CSV file (e.g., `tweets.csv`).
     -   Make sure the file is in the same directory as the script or provide the correct file path in the code (`file_path` variable).
 2.  **Run the script:**
-    -   Execute the script: `python your_script_name.py`
+    -   Execute the script: `python gpt-tweet.py`
 3.  **Ask questions:**
     -   The script will prompt you to enter your question.
     -   Type your question and press Enter.
@@ -69,4 +69,4 @@ Answer:
 This code utilizes the OpenAI API, and standard API usage charges apply. Make sure you understand the OpenAI API pricing before running this code.
 
 
-**Remember to replace placeholders like `your-username`, `your-repo-name`, `your_openai_api_key_here`, `tweets.csv`, `your_script_name.py` with your actual details.**
+**Remember to replace placeholders like `your_openai_api_key_here`, `tweets.csv` with your actual details.**
