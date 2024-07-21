@@ -1,4 +1,4 @@
-```
+
 # Twitter Data Analysis with RAG and Prompt Engineering
 
 This Python script leverages the power of Retrieval Augmented Generation (RAG) and prompt engineering to analyze Twitter data and answer your questions.
@@ -67,6 +67,6 @@ Answer:
 ## Disclaimer
 
 This code utilizes the OpenAI API, and standard API usage charges apply. Make sure you understand the OpenAI API pricing before running this code.
-```
+
 
 **Remember to replace placeholders like `your-username`, `your-repo-name`, `your_openai_api_key_here`, `tweets.csv`, `your_script_name.py` with your actual details.**
