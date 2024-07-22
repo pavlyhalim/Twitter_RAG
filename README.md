@@ -33,7 +33,7 @@ This Python script leverages the power of Retrieval Augmented Generation (RAG) a
    - Ensure the JSON file contains a `tweets` array and a `summary` object.
 
 2. **Run the script:**
-   - Execute the script: `python gpt-json.py`
+   - Execute the script: `python gpt-tweet.py`
 
 3. **Ask questions:**
    - The script will prompt you to enter your question.
