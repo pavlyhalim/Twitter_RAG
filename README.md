@@ -1,4 +1,4 @@
-# NewJeans Tweet Analysis System
+# Tweet Analysis System
 
 ## Overview
 
