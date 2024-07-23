@@ -1,75 +1,93 @@
-# Twitter Data Analysis with RAG and Prompt Engineering
+# NewJeans Tweet Analysis System
 
-This Python script leverages the power of Retrieval Augmented Generation (RAG) and prompt engineering to analyze Twitter data and answer your questions about NewJeans, a K-pop girl group.
+## Overview
+
+This project is an advanced tweet analysis system specifically designed for analyzing tweets related to the K-pop group NewJeans. It uses natural language processing, machine learning, and the GPT-4 API to provide in-depth, query-specific analyses of tweets about NewJeans.
 
 ## Features
 
-- **RAG Implementation:** The script reads a JSON file containing Twitter data and employs RAG techniques to answer user-provided questions about the dataset.
-- **Prompt Engineering:** It carefully crafts prompts for the OpenAI API to guide the model in understanding the data and generating relevant responses.
-- **User-Friendly Interface:** A simple command-line interface makes it easy to ask questions and receive insightful answers.
-- **Date Range Parsing:** Automatically detects and filters tweets based on date ranges mentioned in questions.
-- **Relevance Scoring:** Uses TF-IDF and cosine similarity to retrieve the most relevant tweets for each question.
-- **Token Counting:** Utilizes the `tiktoken` library to count tokens, ensuring responses stay within API limits.
+- Load and preprocess tweets from a JSONL file
+- Multilingual support with automatic language detection
+- Advanced text preprocessing including Korean language support
+- Parallel processing for efficient tweet analysis
+- FAISS-based similarity search for relevant tweet retrieval
+- Time-aware relevance scoring
+- GPT-4 powered analysis of retrieved tweets
+- Interactive query system for user-specific questions
 
 ## Requirements
 
-- Python 3.7 or higher
-- OpenAI API key
-- Required Python libraries: `openai`, `sklearn`, `tiktoken`, `json`, `datetime`, `re`
+- Python 3.8+
+- PyTorch
+- Transformers
+- FAISS
+- Pandas
+- NumPy
+- Langdetect
+- KoNLPy
+- OpenAI API
+- Tiktoken
+- Tqdm
+- Pytz
 
-## Installation
+## Setup
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo-name.git`
-2. Install required packages: `pip install openai scikit-learn tiktoken`
-3. Ensure your OpenAI API key is set in the script:
-   ```python
-   openai.api_key = "your_openai_api_key_here"
+1. Clone the repository:
    ```
+   git clone https://github.com/your-username/newjeans-tweet-analysis.git
+   cd newjeans-tweet-analysis
+   ```
+
+2. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. Set up your OpenAI API key:
+   - Create a `.env` file in the project root
+   - Add your OpenAI API key to the file:
+     ```
+     OPENAI_API_KEY=your-api-key-here
+     ```
+
+4. Prepare your tweet data:
+   - Ensure your tweet data is in JSONL format
+   - Update the `file_path` variable in the script with the path to your JSONL file
 
 ## Usage
 
-1. **Prepare your data:**
-   - Place your Twitter data in a JSON file named `data.jsonl` in the same directory as the script.
-   - Ensure the JSON file contains a `tweets` array and a `summary` object.
+1. Run the script:
+   ```
+   python newjeans_analysis.py
+   ```
 
-2. **Run the script:**
-   - Execute the script: `python gpt-tweet.py`
+2. Enter your specific questions about NewJeans when prompted.
 
-3. **Ask questions:**
-   - The script will prompt you to enter your question.
-   - Type your question and press Enter.
+3. Review the analysis provided by the system.
 
-4. **Get answers:**
-   - The script will analyze the Twitter data and provide a comprehensive answer based on the information available in the JSON file.
-   - It will list relevant tweets, provide analysis, and highlight key insights.
+4. Type 'exit' when you're done asking questions.
 
-5. **Quit:**
-   - Type 'quit' and press Enter to exit the program.
+## How It Works
 
-## Example
+1. **Data Loading**: The system loads tweets from a JSONL file.
+2. **Preprocessing**: Tweets are preprocessed, including text cleaning and language detection.
+3. **Embedding**: Each tweet is converted into a vector representation using a pre-trained language model.
+4. **Indexing**: A FAISS index is built for efficient similarity search.
+5. **Query Processing**: User queries are processed to find relevant tweets.
+6. **Analysis**: GPT-4 analyzes the relevant tweets and provides insights based on the user's query.
 
-```
-Enter your question (or 'quit'): What are the most recent 5 tweets about Hanni?
-Answer:
-[The script will provide a detailed answer, including the 5 most recent tweets mentioning Hanni, their URLs, and any relevant analysis.]
-```
+## Limitations
 
-## How it Works
+- The system requires a significant amount of RAM, especially for large tweet datasets.
+- Analysis quality depends on the availability and relevance of tweets in the dataset.
+- The OpenAI API key is required for GPT-4 analysis.
 
-1. **Data Loading:** The script reads the Twitter data from the specified JSON file.
-2. **Question Processing:** When you ask a question, the script parses it for date ranges and key terms.
-3. **Tweet Retrieval:** Relevant tweets are retrieved based on TF-IDF similarity and keyword matching.
-4. **RAG with OpenAI API:** A carefully crafted prompt, along with the relevant tweets and summary data, is sent to the OpenAI API.
-5. **Answer Generation:** The OpenAI model processes the information and generates a comprehensive answer.
-6. **Output:** The script presents the generated answer, including relevant tweets and analysis.
+## Contributing
 
-## Customization
+Contributions to improve the system are welcome. Please feel free to submit issues or pull requests.
 
-- **File Path:** Modify the `file_path` variable to point to your Twitter data file if it's not in the default location.
-- **OpenAI Model:** You can experiment with different OpenAI models by changing the `model` parameter in the `get_completion` function.
-- **Maximum Tweets:** Adjust the `max_tweets` variable in the `main` function to control how many tweets are included in each analysis.
-- **Prompt Optimization:** Further refine the prompt template in the `analyze_data` function to improve the accuracy and relevance of the answers for your specific use case.
+## Acknowledgments
 
-## Disclaimer
-
-This code utilizes the OpenAI API, and standard API usage charges apply. Make sure you understand the OpenAI API pricing before running this code. The script includes safeguards to prevent excessive token usage, but monitor your usage to avoid unexpected charges.
+- This project uses the Hugging Face Transformers library for NLP tasks.
+- FAISS library by Facebook AI Research is used for efficient similarity search.
+- OpenAI's GPT-4 is used for generating in-depth analyses.
