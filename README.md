@@ -85,9 +85,3 @@ This project is an advanced tweet analysis system specifically designed for anal
 ## Contributing
 
 Contributions to improve the system are welcome. Please feel free to submit issues or pull requests.
-
-## Acknowledgments
-
-- This project uses the Hugging Face Transformers library for NLP tasks.
-- FAISS library by Facebook AI Research is used for efficient similarity search.
-- OpenAI's GPT-4 is used for generating in-depth analyses.
