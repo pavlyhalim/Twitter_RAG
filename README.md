@@ -58,7 +58,7 @@ This project is an advanced tweet analysis system specifically designed for anal
 
 1. Run the script:
    ```
-   python newjeans_analysis.py
+   python gpt-tweet.py
    ```
 
 2. Enter your specific questions about NewJeans when prompted.
